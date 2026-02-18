@@ -1,0 +1,38 @@
+name: بناء Sorix تلقائياً
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: استنساخ المشروع
+        uses: actions/checkout@v4
+
+      - name: إعداد Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: تثبيت الأدوات
+        run: |
+          npm install -g expo-cli
+          npm install
+
+      - name: بناء APK
+        run: |
+          expo build:android -t apk --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: رفع APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sorix-APK
+          path: |
+            *.apk
+            *.aab
