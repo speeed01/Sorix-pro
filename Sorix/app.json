@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Sorix",
+    "slug": "sorix",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#7C3AED"
+    },
+    "android": {
+      "package": "com.sorix.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./icon.png",
+        "backgroundColor": "#7C3AED"
+      },
+      "permissions": []
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sorix.app"
+    },
+    "web": {
+      "favicon": "./icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "sorix-app"
+      }
+    }
+  }
+}
